@@ -1,14 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
+import ButtonCamera from './components/ButtonCamera';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <Button icon="camera" mode="contained">
-                Dummy Button
-      </Button>
+      <Text>Click to Open Camera</Text>
+      {/* <Button icon="camera" mode="contained">
+                Camera Button
+      </Button> */}
+
+      <ButtonCamera/>
     </View>
   );
 }
