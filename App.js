@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { Button } from 'react-native-paper';
 import ButtonCamera from './components/ButtonCamera';
+import UserLogin from './components/UserLogin';
 
 export default function App() {
   return (
@@ -11,7 +12,8 @@ export default function App() {
                 Camera Button
       </Button> */}
 
-      <ButtonCamera/>
+      <ButtonCamera />
+      <UserLogin />
     </View>
   );
 }

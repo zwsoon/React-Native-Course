@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Button } from 'react-native-paper';
 import { launchCameraAsync, useCameraPermissions, PermissionStatus } from 'expo-image-picker';
-import { Alert } from 'react-native';
+import { Alert, View } from 'react-native';
 
 export default function buttonCamera(){
     const [condition, setCondition] = React.useState('Camera')
@@ -35,6 +35,6 @@ export default function buttonCamera(){
     return (
         <Button icon="camera" mode="contained" onPress={takeImage}>
             {condition}
-        </Button>
+        </Button> 
     )
 }
