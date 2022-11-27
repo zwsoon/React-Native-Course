@@ -21,8 +21,9 @@ export default function UserLogin(props) {
                 returnKeyType='go'
                 secureTextEntry
                 autoCorrect={false}
+                onChangeText={text => props.handlePassword(text)}
             />
-            <Button icon="login" mode="contained">
+            <Button icon="login" mode="contained" onPress={props.clicked}>
                 Login
             </Button> 
             <Button mode="text">

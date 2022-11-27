@@ -10,10 +10,18 @@ import ButtonAPI from './components/ButtonAPI';
 export default function App() {
 
   const [username, setUsername] = React.useState('')
+  const [password, setPassword] = React.useState('')
   
   handleUsername = (text) => {
     setUsername(text);
-    console.log(username);
+  }
+
+  handlePassword = (text) => {
+    setPassword(text)
+  }
+
+  showlog = () => {
+    console.log(`username: ${username} password: ${password}`)
   }
 
   return (
@@ -27,6 +35,8 @@ export default function App() {
       <ButtonCamera />
         <UserLogin
           handleUsername={this.handleUsername}
+          handlePassword={this.handlePassword}
+          clicked={this.showlog}
       />
       {/* <ButtonAPI /> */}
       </View>
