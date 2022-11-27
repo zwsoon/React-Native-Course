@@ -4,18 +4,13 @@ import axios from 'axios';
 import { launchCameraAsync, useCameraPermissions, PermissionStatus } from 'expo-image-picker';
 import { Alert, View } from 'react-native';
 
-export default function ButtonAPI(){
-    const [condition, setCondition] = React.useState({
-        firtName: { value: "Zachary" },
-        lastName: { value: "Soon"},
-        DOB: {value: 'March'},
-    });
-    
-    storeName = () => {
-        axios.post('https://udemy-69c41-default-rtdb.firebaseio.com/FirstName.json',condition).catch("sorry");
+export default function ButtonAPI(props){
+    storeName = (props) => {
+        //axios.post('https://udemy-69c41-default-rtdb.firebaseio.com/FirstName.json', condition).catch("sorry");
+        setUsername(props.username);
+        setPassword(props.password);
     }
     
-
     return (
         <Button icon="camera" mode="contained" onPress={storeName}>
             API Button
