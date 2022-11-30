@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import { TouchableOpacity, KeyboardAvoidingView, TextInput, Text, StyleSheet, View, ProgressViewIOSComponent } from 'react-native';
 import { Button } from 'react-native-paper';
 
-export default function UserLogin(props) {
+export default function UserLogin() {
+    const[userDetails, setUserDetails] = useState({email:'', password:''})
  
     return (
         <KeyboardAvoidingView
@@ -13,11 +14,11 @@ export default function UserLogin(props) {
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Username or Email"
+                    placeholder="Email"
                     placeholderTextColor="white"
                     returnKeyType='go'
                     autoCorrect={false}
-                    onChangeText={text => props.handleUsername(text)}
+                    onChangeText={email => setUserDetails({...userDetails, email: email})}
                 />
                 <TextInput
                     style={styles.input}
@@ -26,10 +27,15 @@ export default function UserLogin(props) {
                     returnKeyType='go'
                     secureTextEntry
                     autoCorrect={false}
-                    onChangeText={text => props.handlePassword(text)}
+                    onChangeText={password => setUserDetails({...userDetails, password: password})}
                 />
                 <View style={styles.buttonContainer}>
-                <Button icon="login" mode="contained" onPress={props.clicked}>
+                <Button icon="login" mode="contained" onPress={() =>
+                    {console.log(`email: ${userDetails.email} and password: ${userDetails.password}`)}}>
+                    Login
+                </Button> 
+                <Button icon="login" mode="contained" onPress={() =>
+                    {console.log(`email: ${userDetails.email} and password: ${userDetails.password}`)}}>
                     Login
                 </Button> 
         
