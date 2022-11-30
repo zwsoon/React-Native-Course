@@ -20,27 +20,23 @@ export default function App() {
     setPassword(text)
   }
 
-  showlog = () => {
-    console.log(`username: ${username} password: ${password}`)
-  }
-
   return (
     <PaperProvider>
       <View style={styles.container}>
-      <Text>Click to Open Camera</Text>
-      {/* <Button icon="camera" mode="contained">
-                Camera Button
-      </Button> */}
-
-      <ButtonCamera />
+      {/* <Text>Click to Open Camera</Text>
+      <Button icon="camera" mode="contained">
+          Camera Button
+      </Button>
+      <ButtonCamera /> */}
         <UserLogin
           handleUsername={this.handleUsername}
           handlePassword={this.handlePassword}
-          clicked={this.showlog}
+          clicked={() => {
+          console.log(`username: ${username} and password: ${password}`)
+          }}
       />
       {/* <ButtonAPI /> */}
       </View>
-      
     </PaperProvider>
   );
 }
@@ -48,7 +44,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'darkslatebue',
     alignItems: 'center',
     justifyContent: 'center',
   },

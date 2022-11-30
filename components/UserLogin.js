@@ -1,43 +1,94 @@
 import * as React from 'react';
-import { TextInput, StyleSheet, View, ProgressViewIOSComponent } from 'react-native';
+import { useEffect, useState } from 'react'
+import { TouchableOpacity, KeyboardAvoidingView, TextInput, Text, StyleSheet, View, ProgressViewIOSComponent } from 'react-native';
 import { Button } from 'react-native-paper';
 
 export default function UserLogin(props) {
  
     return (
-        <View>
-            <TextInput
-                style={styles.input}
-                placeholder="User Name"
-                placeholderTextColor="#9a73ef"
-                returnKeyType='go'
-                autoCorrect={false}
-                onChangeText={text => props.handleUsername(text)}
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Password"
-                placeholderTextColor="#9a73ef"
-                returnKeyType='go'
-                secureTextEntry
-                autoCorrect={false}
-                onChangeText={text => props.handlePassword(text)}
-            />
-            <Button icon="login" mode="contained" onPress={props.clicked}>
-                Login
-            </Button> 
-            <Button mode="text">
-                Forgot Password
-            </Button> 
-        </View> 
+        <KeyboardAvoidingView
+            style={styles.container}
+            behavior="padding"
+        >
+            <View style={styles.inputContainer}>
+                <TextInput
+                    style={styles.input}
+                    placeholder="Username or Email"
+                    placeholderTextColor="white"
+                    returnKeyType='go'
+                    autoCorrect={false}
+                    onChangeText={text => props.handleUsername(text)}
+                />
+                <TextInput
+                    style={styles.input}
+                    placeholder="Password"
+                    placeholderTextColor="white"
+                    returnKeyType='go'
+                    secureTextEntry
+                    autoCorrect={false}
+                    onChangeText={text => props.handlePassword(text)}
+                />
+                <View style={styles.buttonContainer}>
+                <Button icon="login" mode="contained" onPress={props.clicked}>
+                    Login
+                </Button> 
+        
+                </View>  
+                <Button mode="text">
+                    Forgot Password
+                </Button>
+                
+            </View>
+            {/* <View style={styles.buttonContainer}>
+                <TouchableOpacity onPress={props.clicked} style={[styles.button, styles.buttonOutline]}>
+                    <Text style={styles.buttonText}>Login</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={[styles.button, styles.buttonOutline]}>
+                    <Text style={styles.buttonOutlineText}>Register</Text>
+                </TouchableOpacity>
+            </View> */} 
+            </KeyboardAvoidingView>
     )
 }
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
     input: {
-      height: 40,
-      margin: 12,
-      borderWidth: 1,
-      padding: 10,
+        backgroundColor: 'grey',
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+        borderRadius: 10,
+        marginTop: 5,
     },
+    inputContainer: {
+        width: '80%'
+    },
+    buttonContainer: {
+        width: '60%',
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 40,
+    },
+    button: {
+        backgroundColor: '#0782F9',
+        width: '100%',
+        padding: 15,
+        borderRadius: 10,
+        alignItems: 'center',
+    },
+    buttonOutline: {
+        backgroundColor: 'white',
+        marginTop: 5,
+        borderColor: 'blue',
+        borderWidth: 2,
+    },
+    buttonOutlineText: {
+        color: 'black',
+        fontWeight: '700',
+        fontSize: 16,
+      }
 });
